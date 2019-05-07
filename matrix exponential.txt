@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define fast ios_base::sync_with_stdio(false); cin.tie(0);cout.tie(0);
+#define filein freopen("input.txt","r",stdin)
+#define fileout freopen("output.txt","w",stdout)
+using namespace std;
+ll n,m,k;
+typedef vector<vector<ll> > matrix;
+matrix multiply(matrix a, matrix b)
+{
+    matrix c(21,vector<ll> (21));
+    for(ll i=0;i<k;i++)
+    {
+        for(ll j=0;j<k;j++)
+        {
+            for(ll l=0;l<k;l++)
+            {
+                c[i][j]+=a[i][l]*b[l][j];
+                c[i][j]%=m;
+            }
+        }
+    }
+    return c;
+}
+matrix power(matrix c, ll n1)
+{
+    if(n1==1) return c;
+    matrix d=power(c,n1/2);
+    d=multiply(d,d);
+    if(n1%2) return d=multiply(d,c);
+    return d;
+}
+ll ara[1000],a[10000];
+int  main()
+{
+//    fileout;
+    ll t;
+    cin>>t;
+    ll cnt=0;
+    while(t--){
+            cnt++;
+        getchar();
+        if(cnt!=1) cout<<endl;
+    cin>>k>>m>>n;
+    for(ll i=0;i<k;i++) cin>>ara[i];
+    for(ll i=0;i<k;i++) cin>>a[i];
+    matrix c(21,vector<ll> (21));
+    for(ll i=0;i<k;i++)
+    {
+        c[0][i]=ara[i];
+    }
+    for(ll i=1;i<k;i++)
+    {
+        c[i][i-1]=1;
+    }
+    if(n<k)
+    {
+        cout<<a[n]<<endl;
+        continue;
+    }
+    matrix ans=power(c,n-k+1);
+    ll ans1=0;
+    int l=0;
+    for(ll i=0;i<k;i++)
+    {
+        ans1+=(a[k-i-1]*ans[0][i]);
+        ans1%=m;
+    }
+    ans1%=m;
+    cout<<ans1<<endl;
+    }
+}

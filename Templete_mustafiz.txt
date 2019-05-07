@@ -1,0 +1,73 @@
+#include<bits/stdc++.h>
+#define ll               long long int
+#define pb               push_back
+#define mp               make_pair
+#define ff               first
+#define ss               second
+#define inf              1e18
+#define sqr(x)           (x)*(x)
+
+#define sc1(n)           scanf("%d",&n)
+#define sc2(n,p)         scanf("%d%d",&n,&p)
+#define sc3(n,p,q)       scanf("%d%d%d",&n,&p,&q)
+
+#define scl1(n)          scanf("%lld",&n)
+#define scl2(n,p)        scanf("%lld%lld",&n,&p)
+#define scl3(n,p,q)      scanf("%lld%lld%lld",&n,&p,&q)
+
+#define print(n)         printf("%d",n)
+#define printl(n)        printf("%lld",n)
+#define print_line       printf("\n")
+
+#define PRINT_CASE       printf("Case %d: ",z)
+#define hoise            printf("Hoise \n")
+#define tarpor           printf("Tarpor \n")
+
+#define NORM(x)          if(x>=mod) x%=mod;if(x<0) x+=mod;
+
+///#define ODD(x)           (((x)&1)==0?(0):(1))
+#define loop(i,n)        for(int i=0;i<n;i++)
+#define loop1(i,n)       for(int i=1;i<=n;i++)
+#define REP(i,a,b)       for(int i=a;i<b;i++)
+#define RREP(i,a,b)      for(int i=a;i>=b;i--)
+#define TEST_CASE(t)     for(int z=1;z<=t;z++)
+#define stlloop(v)       for(__typeof(v.begin()) it=v.begin();it!=v.end();it++)
+
+#define gcd(a, b)        __gcd(a, b)
+#define lcm(a, b)        ((a)*((b)/gcd(a,b)))
+#define PRINT_CASE       printf("Case %d: ",z)
+
+#define UNIQUE(v)        (v).erase(unique((v).begin(),(v).end()),(v).end())
+#define watch(x)         cerr << __LINE__ << ": " << #x << " = " << (x) << endl
+#define watch2(x,y)      cerr << __LINE__ << ": " << #x << " = " << x << " " << #y << " = " << y << endl
+
+#define MAX              10000007
+#define MOD              1e9+7
+
+using namespace std;
+
+int main()
+{
+   // freopen("input.txt", "r", stdin);
+   // freopen("output.txt", "w", stdout);
+
+    int n,i;
+    cin>>n;
+    vector<int>v;
+
+    loop(i,n)
+    {
+        int p;
+        cin>>p;
+        v.pb(p);
+    }
+
+    UNIQUE(v);
+
+    stlloop(v)
+    {
+        cout<<*it<<" ";
+    }
+
+    return 0;
+}
